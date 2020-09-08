@@ -21,8 +21,8 @@ public class Maskingdata extends MaskData {
     // this is for printing in the logs becuse it is masked in toString()
     @Override
     public String toString() {
-        
-        maskingFeilds=new String[]("ssn");
+
+        maskingFeilds=new String[]{"ssn"};
         return super.toString();
     }
 }
