@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/api/v1")
 public class CacheCalling {
@@ -29,6 +31,12 @@ public class CacheCalling {
         }
         return new ResponseEntity<>("{\"status\":\""+status+"\"}",HttpStatus.OK);
 
+    }
 
+    @PostMapping("/getPost")
+    public ResponseEntity<?> getProfilefromheader(HttpServletRequest req){
+    String userId=req.getHeader("USER_ID");
+    String res=service.getresponse();
+    return new ResponseEntity<>(res,HttpStatus.OK);
     }
 }
